@@ -19,12 +19,22 @@ export default class App extends React.Component {
     console.log(this.state.todos)
   }
 
+  handleDeleteTodo(key) {
+    let newTodos = this.state.todos
+    let index = newTodos.find(todo => todo.key = key)
+    newTodos.splice(index, 1)
+    this.setState({todos: newTodos})
+  }
+
   render() {
     return (
       <View style= {styles.container}>
         {console.log(this.state.nama)}
         <AddTodo addTodo={this.handleAddTodo.bind(this)} />
-        <Todos todos={this.state.todos}/>
+        <Todos
+          handleDelete={this.handleDeleteTodo.bind(this)}
+          todos={this.state.todos}
+        />
       </View>
     );
   }
