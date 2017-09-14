@@ -17,10 +17,11 @@ export default class Todos extends React.Component {
   render() {
     let todoItems
     if (this.props.todos) (
-      todoItems = this.props.todos.map((todoItem) => {
+      todoItems = this.props.todos.map((todoItem, index) => {
         return (
           <TodoItem
             key={todoItem}
+            id={index}
             todo={todoItem}
             deleteTodo={this.handleDelete.bind(this)}
           />

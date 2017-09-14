@@ -8,6 +8,8 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import {FontAwesome, Entypo} from '@expo/vector-icons'
+
 
 export default class TodoItem extends React.Component {
   handleDeleteTodo(key) {
@@ -21,9 +23,10 @@ export default class TodoItem extends React.Component {
         <Text style={{flex: 8}}>{this.props.todo}</Text>
         <TouchableOpacity
           style={{flex: 2}}
-          onPress={this.handleDeleteTodo.bind(this, this.props.key)}
+          onPress={this.handleDeleteTodo.bind(this, this.props.id)}
         >
-          <Text>X</Text>
+          <FontAwesome name='remove' size={40} color='aqua' />
+          <Entypo name='camera' />
         </TouchableOpacity>
       </View>
     );

@@ -24,10 +24,10 @@ export default class App extends React.Component {
 
   handleDeleteTodo(key) {
     let newTodos = this.state.todos
-    let index = this.state.todos.find(todoItem =>
-      todoItem.key = key
-    )
-    newTodos.splice(index, 1)
+    // let index = this.state.todos.find(todoItem =>
+    //   todoItem.key = key
+    // )
+    newTodos.splice(key, 1)
     this.setState({todos: newTodos})
   }
 
