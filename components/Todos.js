@@ -9,12 +9,21 @@ import {
 import TodoItem from './TodoItem'
 
 export default class Todos extends React.Component {
+
+  handleDelete(key) {
+    this.props.onDelete(key)
+  }
+
   render() {
     let todoItems
     if (this.props.todos) (
-      todoItems = this.props.todos.map(todoItem => {
+      todoItems = this.props.todos.map((todoItem) => {
         return (
-          <TodoItem todo={todoItem} />
+          <TodoItem
+            key={todoItem}
+            todo={todoItem}
+            deleteTodo={this.handleDelete.bind(this)}
+          />
         )
       })
     )

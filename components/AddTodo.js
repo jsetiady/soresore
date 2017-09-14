@@ -20,7 +20,9 @@ export default class AddTodo extends React.Component {
 
   handleButtonPress() {
     this.props.addTodo(this.state.todo)
-    this.setState({todo: ''})
+    this.setState({
+      todo: ''
+    })
   }
 
   render() {

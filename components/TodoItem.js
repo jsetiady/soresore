@@ -10,15 +10,19 @@ import {
 } from 'react-native';
 
 export default class TodoItem extends React.Component {
-  handleDeleteTodo() {
-    console.log('delete pressed')
+  handleDeleteTodo(key) {
+    console.log('makasih' + key)
+    this.props.deleteTodo(key)
   }
 
   render() {
     return (
-      <View>
-        <Text>{this.props.todo}</Text>
-        <TouchableOpacity onPress={this.handleDeleteTodo.bind(this)}>
+      <View style={{flexDirection: 'row', margin: 16}}>
+        <Text style={{flex: 8}}>{this.props.todo}</Text>
+        <TouchableOpacity
+          style={{flex: 2}}
+          onPress={this.handleDeleteTodo.bind(this, this.props.key)}
+        >
           <Text>X</Text>
         </TouchableOpacity>
       </View>
